@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <br>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-4 col-lg-12">
+          <div class="card-header bg-info text-left">
+            Add Category
+          </div>
+          <div class="card-body">
+            <input type="text" name="category"/>
+            <button class = "btn btn-info btn-sm" name="plus">+</button>
+            <br>
+            <br>
+            <div *ngFor="let category of categories">
+              {{category.name}}
+              <button class = "btn btn-info btn-sm" name="edit">Edit</button>
+              <button class = "btn btn-info btn-sm" name="delete">Delete</button>
+              <br>
+              <br>
+            </div>
+          </div>
+        </div>
+    </div>
+  
+  </div>
+  
+  

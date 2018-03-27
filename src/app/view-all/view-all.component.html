@@ -1,0 +1,29 @@
+<div class="container">
+  <br>
+    <form action="" method="GET"> 
+      <div class="row">
+        <div class="col-xs-6 col-md-4 col-lg-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" id="txtSearch"/>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <br>
+    <div *ngFor="let workout of workouts">
+      <div class="row">
+        <div class="col-xs-6 col-md-4 col-lg-12">
+          <div class="card-header bg-info text-left">
+              {{workout.title}}
+          </div>
+          <div class="card-body">
+            <a routerLink="/edit-workout"><button class="btn btn-info btn-sm" type="submit">Edit</button></a>
+            <button class="btn btn-info btn-sm" type="submit">Delete</button>
+            <a routerLink="/start-workout"><button class="btn btn-info btn-sm" type="submit">Start</button></a>
+            <a routerLink="/end-workout"><button class="btn btn-info btn-sm" type="submit">End</button></a>
+          </div>
+      </div>
+      <br>
+    </div>
+</div>
