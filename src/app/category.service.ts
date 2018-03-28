@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ICategory } from './category';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CategoryService {
@@ -15,7 +16,7 @@ export class CategoryService {
 
   addCategory(category) {
     console.log("In service");
-    this.http.post(this._url+"/categories", category).subscribe(res => console.log('Done'));
+    return this.http.post(this._url+"/categories", category);
   }
 
 }

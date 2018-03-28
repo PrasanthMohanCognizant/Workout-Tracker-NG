@@ -13,8 +13,6 @@ export class CategoryComponent implements OnInit {
 
   public categories = [];
 
-  private timerSubscription;
-
   constructor(private _categoryService: CategoryService, private router: Router) { }
 
   ngOnInit() {
@@ -33,9 +31,11 @@ export class CategoryComponent implements OnInit {
       name: value
     }
     console.log(value);
-    this._categoryService.addCategory(obj);
-    this.getCategories();
-    this.router.navigate(['/category']);
+    this._categoryService.addCategory(obj)
+        .subscribe(res => {
+          console.log('Done');
+          this.getCategories();
+        });
   }
 
 }

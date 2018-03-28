@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WorkoutService } from '../workout.service';
 
 @Component({
   selector: 'app-view-all',
@@ -7,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAllComponent implements OnInit {
 
-  public workouts = [
-    {"id": 1, "title": "Morning Run for 5 kms"},
-    {"id": 2, "title": "Push ups 20 counts"}
-  ]
+  public workouts = [];
 
-  constructor() { }
+  constructor(private _workoutService: WorkoutService) { }
 
   ngOnInit() {
+    this.getWorkouts();
+  }
+
+  getWorkouts(){
+    this._workoutService.getWorkouts()
+        .subscribe(data => this.workouts = data);
   }
 
 }
