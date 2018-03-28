@@ -8,8 +8,8 @@
             Add Category
           </div>
           <div class="card-body">
-            <input type="text" name="category"/>
-            <button class = "btn btn-info btn-sm" name="plus">+</button>
+            <input #categoryName type="text" name="category"/>
+            <button (click)="addCategory(categoryName.value)" class = "btn btn-info btn-sm" name="plus" #category>+</button>
             <br>
             <br>
             <div *ngFor="let category of categories">

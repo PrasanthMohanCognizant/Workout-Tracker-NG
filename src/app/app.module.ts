@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,9 @@ import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 import { EditWorkoutComponent } from './edit-workout/edit-workout.component';
 import { StartWorkoutComponent } from './start-workout/start-workout.component';
 import { EndWorkoutComponent } from './end-workout/end-workout.component';
+import { CategoryService } from './category.service';
+import { HttpClientModule } from '@angular/common/http'
+import { WorkoutService } from './workout.service';
 
 const appRoutes: Routes = [
   { path: 'view-all', component: ViewAllComponent },
@@ -41,9 +44,11 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [CategoryService, WorkoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
