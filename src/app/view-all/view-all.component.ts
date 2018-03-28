@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../workout.service';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-view-all',
@@ -8,17 +9,20 @@ import { WorkoutService } from '../workout.service';
 })
 export class ViewAllComponent implements OnInit {
 
-  public workouts = [];
+  public workouts: Object;
 
-  constructor(private _workoutService: WorkoutService) { }
+  searchTerm = new Subject<string>();
 
-  ngOnInit() {
-    this.getWorkouts();
+  constructor(private _workoutService: WorkoutService) { 
+      this._workoutService.getWorkouts(this.searchTerm)
+          .subscribe(workouts => {
+            this.workouts = workouts
+          });
   }
 
-  getWorkouts(){
-    this._workoutService.getWorkouts()
-        .subscribe(data => this.workouts = data);
+  ngOnInit() {
+    this.workouts = this._workoutService.getAllWorkouts()
+                        .subscribe(data => this.workouts = data);
   }
 
 }
