@@ -38,7 +38,19 @@ export class WorkoutService {
 
   addWorkout(workout){
     console.log("In service");
-    this.http.post(this._url+"/workouts", workout).subscribe(res => console.log('Done'));
+    this.http.post(this._url, workout).subscribe(res => console.log('Done'));
+  }
+
+  updateWorkout(workout){
+    console.log(workout);
+    console.log("In Service");
+    this.http.put(this._url, workout).subscribe(res => console.log('Done'));
+  }
+
+  deleteWorkout(workout){
+    console.log(workout);
+    console.log("In Service");
+    return this.http.delete(this._url+"/"+workout.id);
   }
 
 }

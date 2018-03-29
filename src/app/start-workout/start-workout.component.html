@@ -5,27 +5,27 @@
     <div class="row">
         <div class="col-xs-6 col-md-4 col-lg-12">
           <div class="card-header bg-info text-left">
-            End Workout
+            Start Workout
           </div>
           <div class="card-body">
             Title:
-            <input type="text" name="title"/>
+            <input type="text" disabled="true" name="title" value="{{workout.title}}"/>
             <br>
             <br>
             Comment:
-            <input type="text" name="comment"/>
+            <input #comment type="text" name="comment" value="{{workout.comment}}"/>
             <br>
             <br>
             Start Date:
-            <input type="text" name="startdate"/>
+            <input #startDate disabled="true" type="text" name="startdate" value="{{today | date }}"/>
             <br>
             <br>
             Start Time:
-            <input type="text" name="starttime"/>
+            <input #startTime disabled="true" type="text" name="starttime" value="{{today | date:'shortTime'}}"/>
             <br>
             <br>
-            <button class = "btn btn-info btn-lg" name="update">Start</button>
-            <button class = "btn btn-info btn-lg" name="cancel">Cancel</button>
+            <button (click)="onStartWorkout(comment,startDate,startTime)" class = "btn btn-info btn-lg" name="update">Start</button>
+            <button (click)="onCancel()" class = "btn btn-info btn-lg" name="cancel">Cancel</button>
           </div>
         </div>
     </div>

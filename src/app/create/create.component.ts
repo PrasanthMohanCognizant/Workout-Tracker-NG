@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../category.service';
 import { FormsModule } from '@angular/forms';
 import { WorkoutService } from '../workout.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -16,7 +17,7 @@ export class CreateComponent implements OnInit {
 
   private workoutCategory:string;
 
-  constructor(private _categoryService: CategoryService, private _workoutService: WorkoutService) { }
+  constructor(private _categoryService: CategoryService, private _workoutService: WorkoutService, private router: Router) { }
 
   ngOnInit() {
     this.getCategories();
@@ -45,6 +46,7 @@ export class CreateComponent implements OnInit {
     }
     console.log("call service");
     this._workoutService.addWorkout(obj);
+    this.router.navigate(['./view-all']);
   }
 
 }

@@ -9,23 +9,23 @@
           </div>
           <div class="card-body">
             Title:
-            <input type="text" name="title"/>
+            <input type="text" disabled="true" name="title" value="{{workout.title}}"/>
             <br>
             <br>
             Comment:
-            <input type="text" name="comment"/>
+            <input #comment type="text" name="comment" value="{{workout.comment}}"/>
             <br>
             <br>
             End Date:
-            <input type="text" name="enddate"/>
+            <input #endDate disabled="true" type="text" name="startdate" value="{{today | date }}"/>
             <br>
             <br>
             End Time:
-            <input type="text" name="endtime"/>
+            <input #endTime disabled="true" type="text" name="starttime" value="{{today | date:'shortTime'}}"/>
             <br>
             <br>
-            <button class = "btn btn-info btn-lg" name="update">End</button>
-            <button class = "btn btn-info btn-lg" name="cancel">Cancel</button>
+            <button (click)="onEndWorkout(comment,endDate,endTime)" class = "btn btn-info btn-lg" name="update">End</button>
+            <button (click)="onCancel()" class = "btn btn-info btn-lg" name="cancel">Cancel</button>
           </div>
         </div>
     </div>

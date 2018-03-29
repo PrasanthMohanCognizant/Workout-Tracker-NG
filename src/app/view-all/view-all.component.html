@@ -18,10 +18,10 @@
               {{workout.title}}
           </div>
           <div class="card-body">
-            <a routerLink="/edit-workout"><button class="btn btn-info btn-sm" type="submit">Edit</button></a>
-            <button class="btn btn-info btn-sm" type="submit">Delete</button>
-            <a routerLink="/start-workout"><button class="btn btn-info btn-sm" type="submit">Start</button></a>
-            <a routerLink="/end-workout"><button class="btn btn-info btn-sm" type="submit">End</button></a>
+            <a routerLink="/edit-workout"><button (click)="onEditWorkout(workout)" class="btn btn-info btn-sm" type="submit">Edit</button></a>
+            <button (click)="onDeleteWorkout(workout)" class="btn btn-info btn-sm" type="submit">Delete</button>
+            <a routerLink="/start-workout"><button (click)="onStartWorkout(workout)" class="btn btn-info btn-sm" type="submit">Start</button></a>
+            <a routerLink="/end-workout"><button (click)="onEndWorkout(workout)" class="btn btn-info btn-sm" type="submit">End</button></a>
           </div>
       </div>
       <br>

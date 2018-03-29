@@ -9,19 +9,22 @@
           </div>
           <div class="card-body">
             Title:
-            <input type="text" name="title"/>
+            <input #workoutTitle type="text" name="title" value="{{workout.title}}"/>
             <br>
             <br>
             Note:
-            <input type="text" name="note"/>
+            <input #workoutNote type="text" name="note" value="{{workout.note}}"/>
             <br>
             <br>
             Category:
-            <input type="text" name="category"/>
-            <button class = "btn btn-info btn-sm" name="plus">+</button>
+            <select name="categories">
+                <option #workoutCategoryId *ngFor="let category of categories" value= {{workout.category_id}}>
+                  {{category.name}}
+                </option>
+              </select>
             <br>
             <br>
-            <button class = "btn btn-info btn-lg" name="update">Update</button>
+            <button (click)="onUpdate(workoutTitle, workoutNote, workoutCategory)" class = "btn btn-info btn-lg" name="update">Update</button>
             <button class = "btn btn-info btn-lg" name="cancel">Cancel</button>
           </div>
         </div>

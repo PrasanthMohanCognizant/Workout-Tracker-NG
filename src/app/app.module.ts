@@ -16,6 +16,7 @@ import { EndWorkoutComponent } from './end-workout/end-workout.component';
 import { CategoryService } from './category.service';
 import { HttpClientModule } from '@angular/common/http'
 import { WorkoutService } from './workout.service';
+import { DataserviceService } from './dataservice.service';
 
 const appRoutes: Routes = [
   { path: 'view-all', component: ViewAllComponent },
@@ -48,7 +49,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [CategoryService, WorkoutService],
+  providers: [CategoryService, WorkoutService, DataserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

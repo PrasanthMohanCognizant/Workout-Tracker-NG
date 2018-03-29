@@ -14,8 +14,7 @@
             <br>
             <div *ngFor="let category of categories">
               {{category.name}}
-              <button class = "btn btn-info btn-sm" name="edit">Edit</button>
-              <button class = "btn btn-info btn-sm" name="delete">Delete</button>
+              <button (click)="onDeleteCategory(category)" class = "btn btn-info btn-sm" name="delete">Delete</button>
               <br>
               <br>
             </div>
